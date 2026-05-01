@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://airgp.space/schemas/policy-primitive.schema.json",
+  "title": "AIRGP Policy Primitive",
+  "description": "A single policy rule evaluated by the AIRGP Policy Engine.",
+  "type": "object",
+  "required": ["primitive_id", "primitive_type", "name", "enabled"],
+  "properties": {
+    "primitive_id": { "type": "string", "format": "uuid" },
+    "primitive_type": {
+      "type": "string",
+      "enum": ["guardrail", "routing_rule", "cost_cap", "data_boundary", "provenance_requirement", "rate_limit", "compliance_mapping"]
+    },
+    "name": { "type": "string", "maxLength": 256 },
+    "description": { "type": "string" },
+    "conditions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "operator", "value"],
+        "properties": {
+          "field": { "type": "string" },
+          "operator": { "type": "string", "enum": ["eq", "ne", "gt", "lt", "gte", "lte", "in", "not_in", "contains", "matches"] },
+          "value": {}
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["action_type"],
+        "properties": {
+          "action_type": { "type": "string", "enum": ["allow", "block", "modify", "flag", "route", "log", "alert"] },
+          "parameters": { "type": "object" }
+        }
+      }
+    },
+    "priority": { "type": "integer", "minimum": 0, "maximum": 1000, "default": 500 },
+    "enabled": { "type": "boolean" },
+    "tenant_scope": { "type": "string", "description": "Tenant or wildcard (*) this primitive applies to." }
+  }
+}

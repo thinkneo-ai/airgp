@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://airgp.space/schemas/telemetry-signal.schema.json",
+  "title": "AIRGP Telemetry Signal",
+  "description": "An observability signal emitted by AIRGP components, compatible with OpenTelemetry.",
+  "type": "object",
+  "required": ["signal_id", "timestamp", "source_component", "signal_type", "value"],
+  "properties": {
+    "signal_id": { "type": "string", "format": "uuid" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "source_component": { "type": "string", "enum": ["runtime_adapter", "control_plane", "policy_engine", "audit_ledger"] },
+    "signal_type": {
+      "type": "string",
+      "enum": ["latency", "token_count", "error_rate", "throughput", "queue_depth", "cache_hit_rate", "policy_eval_time"]
+    },
+    "value": { "type": "number" },
+    "unit": { "type": "string", "enum": ["ms", "tokens", "percent", "requests_per_second", "count", "bytes"] },
+    "dimensions": {
+      "type": "object",
+      "properties": {
+        "provider": { "type": "string" },
+        "model": { "type": "string" },
+        "tenant_id": { "type": "string" },
+        "region": { "type": "string" },
+        "policy_id": { "type": "string" }
+      }
+    },
+    "otel_trace_id": { "type": "string", "description": "OpenTelemetry trace ID for correlation." },
+    "otel_span_id": { "type": "string", "description": "OpenTelemetry span ID." }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "verdict_id": "019063a1-8b3c-7def-9a12-4b5c6d7e8f90",
+  "request_id": "019063a1-7a2b-7abc-8d01-2e3f4a5b6c7d",
+  "guardrail_id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "decision": "block",
+  "confidence": 0.94,
+  "reasoning": "Content matched hate_speech category with severity 0.94, exceeding threshold 0.7.",
+  "applied_policies": ["d290f1ee-6c54-4b01-90e6-d701748f0851"],
+  "latency_ms": 12.4,
+  "timestamp": "2026-05-01T14:30:00.000000000Z",
+  "categories_detected": ["hate_speech"]
+}

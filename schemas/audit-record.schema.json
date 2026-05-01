@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://airgp.space/schemas/audit-record.schema.json",
+  "title": "AIRGP Audit Record",
+  "description": "A tamper-evident, hash-chained record in the AIRGP Audit Ledger.",
+  "type": "object",
+  "required": ["record_id", "timestamp", "event_type", "actor", "action", "payload_hash", "prev_hash"],
+  "properties": {
+    "record_id": { "type": "string", "format": "uuid" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "event_type": {
+      "type": "string",
+      "enum": ["policy_evaluated", "guardrail_triggered", "request_routed", "cost_recorded", "provenance_verified", "rate_limited", "compliance_checked", "configuration_changed"]
+    },
+    "actor": {
+      "type": "object",
+      "required": ["component", "instance_id"],
+      "properties": {
+        "component": { "type": "string" },
+        "instance_id": { "type": "string" },
+        "tenant_id": { "type": "string" }
+      }
+    },
+    "action": { "type": "string" },
+    "resource": { "type": "string", "description": "The resource acted upon (model, endpoint, tenant, etc.)." },
+    "verdict": { "type": "string", "enum": ["allow", "block", "modify", "flag"] },
+    "policy_ids": {
+      "type": "array",
+      "items": { "type": "string", "format": "uuid" }
+    },
+    "payload_hash": { "type": "string", "description": "SHA-256 of the event payload, hex-encoded." },
+    "prev_hash": { "type": "string", "description": "SHA-256 of the previous audit record, hex-encoded." },
+    "merkle_root": { "type": "string", "description": "Merkle tree root at periodic anchor points." },
+    "metadata": { "type": "object" }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "record_id": "019063a1-8c4d-7ef0-ab23-5c6d7e8f9012",
+  "timestamp": "2026-05-01T14:30:00.012400000Z",
+  "event_type": "guardrail_triggered",
+  "actor": {
+    "component": "policy_engine",
+    "instance_id": "pe-us-east-1-001",
+    "tenant_id": "tenant-acme-corp"
+  },
+  "action": "evaluate_guardrail",
+  "resource": "claude-sonnet-4-6",
+  "verdict": "block",
+  "policy_ids": ["d290f1ee-6c54-4b01-90e6-d701748f0851"],
+  "payload_hash": "a3f2b1c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2",
+  "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "metadata": {
+    "request_model": "claude-sonnet-4-6",
+    "request_provider": "anthropic",
+    "verdict_latency_ms": 12.4
+  }
+}
