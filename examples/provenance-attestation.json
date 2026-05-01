@@ -1,0 +1,21 @@
+{
+  "attestation_id": "c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f",
+  "timestamp": "2026-05-01T00:00:00.000000000Z",
+  "model_id": "claude-sonnet-4-6",
+  "provider": "anthropic",
+  "model_version": "claude-sonnet-4-6-20250514",
+  "training_data_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "fine_tuning_hash": null,
+  "deployment_environment": {
+    "region": "us-east-1",
+    "cloud_provider": "anthropic",
+    "compute_type": "api",
+    "runtime_version": "2026.05"
+  },
+  "safety_evaluations": [
+    { "evaluation_name": "RSP Level 3", "result": "pass", "score": 0.97, "date": "2026-04-15" },
+    { "evaluation_name": "NIST AI RMF Mapping", "result": "pass", "score": 0.92, "date": "2026-04-20" }
+  ],
+  "signer": "ThinkNEO Control Plane v3.13.0",
+  "signature": "base64-encoded-ed25519-signature-placeholder"
+}

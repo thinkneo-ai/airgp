@@ -1,0 +1,35 @@
+name: Validate Schemas
+
+on:
+  push:
+    paths: ['schemas/**', 'examples/**']
+  pull_request:
+    paths: ['schemas/**', 'examples/**']
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install ajv-cli
+        run: npm install -g ajv-cli ajv-formats
+
+      - name: Validate schemas are valid JSON Schema
+        run: |
+          for schema in schemas/*.schema.json; do
+            echo "Validating schema: $schema"
+            ajv compile -s "$schema" --spec=draft2020 -c ajv-formats
+          done
+
+      - name: Validate examples against schemas
+        run: |
+          ajv validate -s schemas/policy-primitive.schema.json -d examples/basic-policy.json --spec=draft2020 -c ajv-formats
+          ajv validate -s schemas/guardrail-verdict.schema.json -d examples/guardrail-verdict.json --spec=draft2020 -c ajv-formats
+          ajv validate -s schemas/audit-record.schema.json -d examples/audit-record.json --spec=draft2020 -c ajv-formats
+          ajv validate -s schemas/policy-primitive.schema.json -d examples/cost-cap-policy.json --spec=draft2020 -c ajv-formats
+          ajv validate -s schemas/provenance-attestation.schema.json -d examples/provenance-attestation.json --spec=draft2020 -c ajv-formats

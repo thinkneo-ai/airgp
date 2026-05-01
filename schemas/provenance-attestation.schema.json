@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://airgp.space/schemas/provenance-attestation.schema.json",
+  "title": "AIRGP Provenance Attestation",
+  "description": "An attestation of model provenance, training lineage, and deployment context.",
+  "type": "object",
+  "required": ["attestation_id", "timestamp", "model_id", "provider", "signer"],
+  "properties": {
+    "attestation_id": { "type": "string", "format": "uuid" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "model_id": { "type": "string" },
+    "provider": { "type": "string" },
+    "model_version": { "type": "string" },
+    "training_data_hash": { "type": "string", "description": "SHA-256 hash of the training dataset manifest." },
+    "fine_tuning_hash": { "type": "string", "description": "SHA-256 hash of the fine-tuning configuration and data." },
+    "deployment_environment": {
+      "type": "object",
+      "properties": {
+        "region": { "type": "string" },
+        "cloud_provider": { "type": "string" },
+        "compute_type": { "type": "string" },
+        "runtime_version": { "type": "string" }
+      }
+    },
+    "safety_evaluations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "evaluation_name": { "type": "string" },
+          "result": { "type": "string", "enum": ["pass", "fail", "conditional"] },
+          "score": { "type": "number" },
+          "date": { "type": "string", "format": "date" }
+        }
+      }
+    },
+    "signer": { "type": "string", "description": "Entity that signs the attestation." },
+    "signature": { "type": "string", "description": "Ed25519 signature over the attestation." }
+  }
+}

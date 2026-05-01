@@ -1,0 +1,17 @@
+{
+  "primitive_id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "primitive_type": "guardrail",
+  "name": "Content Safety Filter",
+  "description": "Blocks requests and responses containing harmful content categories.",
+  "conditions": [
+    { "field": "content.categories", "operator": "in", "value": ["violence", "self_harm", "hate_speech"] },
+    { "field": "content.severity", "operator": "gte", "value": 0.7 }
+  ],
+  "actions": [
+    { "action_type": "block", "parameters": { "reason": "Content policy violation", "category": "safety" } },
+    { "action_type": "log", "parameters": { "level": "warn" } }
+  ],
+  "priority": 100,
+  "enabled": true,
+  "tenant_scope": "*"
+}

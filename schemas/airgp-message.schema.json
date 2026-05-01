@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://airgp.space/schemas/airgp-message.schema.json",
+  "title": "AIRGP Wire Message",
+  "description": "Envelope for all AIRGP governance signals exchanged between components.",
+  "type": "object",
+  "required": ["airgp_version", "message_id", "timestamp", "source", "destination", "signal_type", "payload"],
+  "properties": {
+    "airgp_version": {
+      "type": "string",
+      "const": "1.0",
+      "description": "AIRGP specification version."
+    },
+    "message_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique message identifier (UUIDv7 recommended)."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "RFC 3339 timestamp with nanosecond precision, UTC."
+    },
+    "source": {
+      "type": "object",
+      "required": ["component", "instance_id"],
+      "properties": {
+        "component": { "type": "string", "enum": ["runtime_adapter", "control_plane", "policy_engine", "audit_ledger"] },
+        "instance_id": { "type": "string" }
+      }
+    },
+    "destination": {
+      "type": "object",
+      "required": ["component", "instance_id"],
+      "properties": {
+        "component": { "type": "string", "enum": ["runtime_adapter", "control_plane", "policy_engine", "audit_ledger"] },
+        "instance_id": { "type": "string" }
+      }
+    },
+    "signal_type": {
+      "type": "string",
+      "enum": ["policy_evaluation", "guardrail_verdict", "audit_record", "telemetry", "cost_event", "provenance"]
+    },
+    "payload": {
+      "type": "object",
+      "description": "Signal-type-specific payload."
+    },
+    "signature": {
+      "type": "string",
+      "description": "Ed25519 signature over the canonical JSON serialization of this message (excluding the signature field itself)."
+    },
+    "prev_hash": {
+      "type": "string",
+      "description": "SHA-256 hash of the previous message in the chain, hex-encoded."
+    }
+  }
+}

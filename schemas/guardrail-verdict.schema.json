@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://airgp.space/schemas/guardrail-verdict.schema.json",
+  "title": "AIRGP Guardrail Verdict",
+  "description": "The result of evaluating a guardrail policy primitive against a request.",
+  "type": "object",
+  "required": ["verdict_id", "request_id", "guardrail_id", "decision", "timestamp"],
+  "properties": {
+    "verdict_id": { "type": "string", "format": "uuid" },
+    "request_id": { "type": "string", "format": "uuid" },
+    "guardrail_id": { "type": "string", "format": "uuid" },
+    "decision": {
+      "type": "string",
+      "enum": ["allow", "block", "modify", "flag"]
+    },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "reasoning": { "type": "string", "description": "Human-readable explanation of the verdict." },
+    "applied_policies": {
+      "type": "array",
+      "items": { "type": "string", "format": "uuid" }
+    },
+    "latency_ms": { "type": "number", "minimum": 0 },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "categories_detected": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Content categories that triggered the verdict."
+    }
+  }
+}

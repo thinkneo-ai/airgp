@@ -1,0 +1,17 @@
+{
+  "primitive_id": "b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e",
+  "primitive_type": "cost_cap",
+  "name": "Daily Tenant Budget",
+  "description": "Limits each tenant to $10 USD per day across all AI providers.",
+  "conditions": [
+    { "field": "budget.consumed_usd", "operator": "gte", "value": 10.00 },
+    { "field": "budget.period", "operator": "eq", "value": "daily" }
+  ],
+  "actions": [
+    { "action_type": "block", "parameters": { "reason": "Daily budget exhausted", "overage_action": "downgrade" } },
+    { "action_type": "alert", "parameters": { "channel": "slack", "threshold_percent": 80 } }
+  ],
+  "priority": 200,
+  "enabled": true,
+  "tenant_scope": "*"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://airgp.space/schemas/cost-accounting.schema.json",
+  "title": "AIRGP Cost Accounting Event",
+  "description": "A cost event recording AI resource consumption and budget tracking.",
+  "type": "object",
+  "required": ["event_id", "timestamp", "tenant_id", "provider", "model", "cost_usd"],
+  "properties": {
+    "event_id": { "type": "string", "format": "uuid" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "tenant_id": { "type": "string" },
+    "request_id": { "type": "string", "format": "uuid" },
+    "provider": { "type": "string" },
+    "model": { "type": "string" },
+    "input_tokens": { "type": "integer", "minimum": 0 },
+    "output_tokens": { "type": "integer", "minimum": 0 },
+    "cost_usd": { "type": "number", "minimum": 0 },
+    "budget_id": { "type": "string" },
+    "budget_limit_usd": { "type": "number", "minimum": 0 },
+    "budget_consumed_usd": { "type": "number", "minimum": 0 },
+    "budget_remaining_usd": { "type": "number" },
+    "budget_period": { "type": "string", "enum": ["hourly", "daily", "weekly", "monthly"] },
+    "overage_action": { "type": "string", "enum": ["allow", "block", "downgrade", "alert"] }
+  }
+}
