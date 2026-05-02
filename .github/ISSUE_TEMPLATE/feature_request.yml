@@ -1,0 +1,46 @@
+name: Feature Request
+description: Suggest an enhancement to the AIRGP specification
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Use Case
+      description: What governance problem does this address?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Change
+      description: Describe the proposed change to the specification.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Spec Area
+      options:
+        - Wire Protocol (Section 7)
+        - Policy Primitives (Section 8)
+        - Observability / Telemetry (Section 9)
+        - Audit Ledger (Section 10)
+        - Identity & Attestation (Section 11)
+        - Security (Section 12)
+        - Privacy (Section 13)
+        - Conformance Levels (Section 5)
+        - New Policy Primitive Type
+        - JSON Schemas
+        - Governance Process
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any alternative approaches you've considered.

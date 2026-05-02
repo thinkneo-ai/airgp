@@ -13,6 +13,8 @@
 [![AIRGP Version](https://img.shields.io/badge/AIRGP-v1.0-blue)](spec/v1.0/AIRGP-v1.0.md)
 [![License: CC-BY-ND-4.0](https://img.shields.io/badge/License-CC--BY--ND--4.0-lightgrey)](LICENSE)
 [![Spec Status](https://img.shields.io/badge/Status-Published-green)]()
+[![Schemas](https://img.shields.io/badge/schemas-7%20JSON%20Schema-orange)](schemas/)
+[![Website](https://img.shields.io/badge/website-airgp.space-d4a017.svg)](https://airgp.space)
 [![Steward](https://img.shields.io/badge/Steward-ThinkNEO-purple)](https://thinkneo.ai)
 
 ---

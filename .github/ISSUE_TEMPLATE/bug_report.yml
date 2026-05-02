@@ -1,0 +1,45 @@
+name: Bug Report
+description: Report a bug in the AIRGP specification or schemas
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. AIRGP is a specification — bugs may relate to schema definitions, spec inconsistencies, or example errors.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear description of the issue.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected Area
+      options:
+        - Specification text (SPEC.md)
+        - JSON Schemas (schemas/)
+        - Examples (examples/)
+        - Governance documents
+        - CI/CD (GitHub Actions)
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs Actual
+      description: What you expected and what you found instead.
+    validations:
+      required: true
+
+  - type: input
+    id: section
+    attributes:
+      label: Spec Section (if applicable)
+      placeholder: "e.g., Section 7.3"
