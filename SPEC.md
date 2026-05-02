@@ -451,6 +451,8 @@ Every AIRGP Wire Message MUST conform to the following envelope structure:
 - `signature` (string, REQUIRED): A base64url-encoded Ed25519 signature over the canonical JSON representation of all other fields (excluding `signature` itself). Canonical JSON is defined as JSON serialized with keys sorted lexicographically, no whitespace, and UTF-8 encoding.
 - `prev_hash` (string, REQUIRED): The SHA-256 hash of the previous message in this component's hash chain, formatted as `"sha256:{hex-encoded-hash}"`. For the first message in a chain, this field MUST be `"sha256:0000000000000000000000000000000000000000000000000000000000000000"` (64 zero characters).
 
+The canonical form used as input to the Ed25519 signature in the `signature` field, and as input to the SHA-256 hash chain via `prev_hash`, MUST be computed per RFC 8785 (JSON Canonicalization Scheme, JCS). Implementations MUST NOT use ad-hoc canonicalization. The canonicalization output is UTF-8 encoded with no insignificant whitespace, sorted object keys, and normalized number representation as specified in JCS.
+
 ### 7.4 Request/Response Patterns
 
 AIRGP defines two communication patterns:
@@ -1407,6 +1409,8 @@ Future versions of AIRGP MAY define an `airgp://` URI scheme for service discove
 - **[RFC 9110]** Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke, Ed., "HTTP Semantics", STD 97, RFC 9110, DOI 10.17487/RFC9110, June 2022.
 
 - **[RFC 8615]** Nottingham, M., "Well-Known Uniform Resource Identifiers (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019.
+
+- **[RFC 8785]** Rundgren, A., Jordan, B., and S. Erdtman, "JSON Canonicalization Scheme (JCS)", RFC 8785, DOI 10.17487/RFC8785, June 2020.
 
 - **[RFC 8032]** Josefsson, S. and I. Liusvaara, "Edwards-Curve Digital Signature Algorithm (EdDSA)", RFC 8032, DOI 10.17487/RFC8032, January 2017.
 
