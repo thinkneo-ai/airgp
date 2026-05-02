@@ -1426,7 +1426,7 @@ Future versions of AIRGP MAY define an `airgp://` URI scheme for service discove
 
 - **[MCP]** Anthropic, "Model Context Protocol Specification", 2024. https://modelcontextprotocol.io/
 
-- **[A2ASTC]** Bastos, F., "Agent-to-Agent Standardised Trust & Compliance Protocol", ThinkNEO AI Technology Company Limited, 2026.
+- **[A2ASTC]** Bastos, F., "Agent-to-Agent Software Team Compliance", ThinkNEO AI Technology Company Limited, 2026.
 
 - **[OpenPort]** "OpenPort: A Unified Framework for Secure Tool Access in AI Agents", arXiv:2602.20196, 2026.
 
