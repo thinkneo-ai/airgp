@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: "AIRGP: Artificial Intelligence Runtime Governance Protocol"
+message: "If you reference AIRGP in your research, please cite it as below."
+type: software
+authors:
+  - family-names: Bastos
+    given-names: Fabio
+    affiliation: "ThinkNEO AI Technology Company Limited"
+repository-code: "https://github.com/thinkneo-ai/airgp"
+url: "https://airgp.space"
+license: CC-BY-ND-4.0
+version: "1.0"
+date-released: "2026-05-01"
+keywords:
+  - AI governance
+  - runtime governance
+  - wire protocol
+  - policy engine
+  - audit ledger
+  - guardrails
+  - provenance
+  - conformance
+abstract: >-
+  AIRGP is a wire-level protocol for runtime AI governance. It
+  specifies how governance signals — policies, guardrail verdicts,
+  telemetry, audit records, cost accounting, and provenance
+  attestations — flow between AI runtimes, control planes, policy
+  engines, and audit ledgers. The protocol defines seven policy
+  primitive types, a tamper-evident audit ledger using SHA-256 hash
+  chains, Ed25519 message signatures, and three conformance levels
+  (Basic, Enterprise, Sovereign).
