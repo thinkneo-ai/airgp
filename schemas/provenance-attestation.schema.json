@@ -12,7 +12,7 @@
     "provider": { "type": "string" },
     "model_version": { "type": "string" },
     "training_data_hash": { "type": "string", "description": "SHA-256 hash of the training dataset manifest." },
-    "fine_tuning_hash": { "type": "string", "description": "SHA-256 hash of the fine-tuning configuration and data." },
+    "fine_tuning_hash": { "type": ["string", "null"], "description": "SHA-256 hash of the fine-tuning configuration and data. Null if no fine-tuning was applied." },
     "deployment_environment": {
       "type": "object",
       "properties": {
