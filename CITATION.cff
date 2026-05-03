@@ -6,6 +6,14 @@ authors:
   - family-names: Bastos
     given-names: Fabio
     affiliation: "ThinkNEO AI Technology Company Limited"
+    orcid: "https://orcid.org/0009-0005-1954-4168"
+identifiers:
+  - description: "Zenodo archive (canonical citation)"
+    type: doi
+    value: "10.5281/zenodo.20001903"
+  - description: "Concept DOI (always resolves to latest version)"
+    type: doi
+    value: "10.5281/zenodo.20001902"
 repository-code: "https://github.com/thinkneo-ai/airgp"
 url: "https://airgp.space"
 license: CC-BY-ND-4.0

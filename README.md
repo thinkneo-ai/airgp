@@ -10,6 +10,7 @@
  The Runtime Protocol for AI Governance
 ```
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20001903.svg)](https://doi.org/10.5281/zenodo.20001903)
 [![AIRGP Version](https://img.shields.io/badge/AIRGP-v1.0-blue)](spec/v1.0/AIRGP-v1.0.md)
 [![License: CC-BY-ND-4.0](https://img.shields.io/badge/License-CC--BY--ND--4.0-lightgrey)](LICENSE)
 [![Spec Status](https://img.shields.io/badge/Status-Published-green)]()
@@ -130,6 +131,16 @@ AIRGP gratefully acknowledges and builds upon prior work in runtime AI governanc
 - [Anthropic Partner Network](https://www.anthropic.com/) member
 
 Author: **Fabio Bastos** — Founder, ThinkNEO
+
+---
+
+## How to cite
+
+If you reference AIRGP in research, technical writing, or regulatory submissions, please cite the canonical Zenodo record:
+
+Bastos, F. (2026). *AIRGP: Artificial Intelligence Runtime Governance Protocol — Specification, Version 1.0* (Technical Specification). ThinkNEO Publications. https://doi.org/10.5281/zenodo.20001903
+
+BibTeX is available in CITATION.cff.
 
 ---
 
